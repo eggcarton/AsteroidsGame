@@ -5,12 +5,12 @@ class Stars //note that this class does NOT extend Floater
   {
     myX = (int)(Math.random()*500);
     myY = (int)(Math.random()*500);
-    myCol = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+    myCol = color((int)(Math.random()*256));
   }
   public void show()
   {
     noStroke();
     fill(myCol);
-    ellipse(myX, myY, 5, 5);
+    ellipse(myX, myY, 2, 2);
   }
 }
