@@ -1,5 +1,6 @@
 Stars [] bright;
 Spaceship eggBoy = new Spaceship();
+Asteroid chaos = new Asteroid();
 public void setup() 
 {
   size(500,500);
@@ -18,6 +19,9 @@ public void draw()
   }
   eggBoy.show();
   eggBoy.move();
+  chaos.show();
+  chaos.move();
+  
 }
 
 public void keyPressed()
