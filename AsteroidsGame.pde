@@ -1,6 +1,6 @@
 Stars [] bright;
 Spaceship eggBoy = new Spaceship();
-Asteroid chaos = new Asteroid();
+Asteroid [] chaos = new Asteroid[20];
 public void setup() 
 {
   size(500,500);
@@ -8,6 +8,10 @@ public void setup()
   for (int i = 0; i < bright.length; i++)
   {
     bright[i]= new Stars();
+  }
+  for (int i = 0; i < chaos.length; i++)
+  {
+    chaos[i] = new Asteroid();
   }
 }
 public void draw() 
@@ -17,10 +21,14 @@ public void draw()
   {
     bright[i].show();  
   }
+  for (int i = 0; i < chaos.length; i++)
+  {
+    chaos[i].show();
+    chaos[i].move();
+  }
   eggBoy.show();
   eggBoy.move();
-  chaos.show();
-  chaos.move();
+
   
 }
 
@@ -37,6 +45,6 @@ public void keyPressed()
     eggBoy.setDirectionY(0);
   }
   if(key == 'd')eggBoy.turn(10);
-    //if(key == 'q')eggBoy.setX(eggBoy.getX()+1);
-    //if(key == 'e')eggBoy.setX(eggBoy.getX()+2);
+  //if(key == 'q')eggBoy.setX(eggBoy.getX()-5);
+  //if(key == 'e')eggBoy.setX(eggBoy.getX()+5);
 }
