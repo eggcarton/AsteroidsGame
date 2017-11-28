@@ -1,17 +1,17 @@
-Stars [] bright;
+Stars [] bright = new Stars[200];
 Spaceship eggBoy = new Spaceship();
-Asteroid [] chaos = new Asteroid[20];
+ArrayList <Bullet> hell = new ArrayList <Bullet>();
+ArrayList <Asteroid> chaos = new ArrayList <Asteroid>();
 public void setup() 
 {
   size(500,500);
-  bright = new Stars[200];
   for (int i = 0; i < bright.length; i++)
   {
     bright[i]= new Stars();
   }
-  for (int i = 0; i < chaos.length; i++)
+  for (int i = 0; i < 20; i++)
   {
-    chaos[i] = new Asteroid();
+    chaos.add(new Asteroid());
   }
 }
 public void draw() 
@@ -21,10 +21,17 @@ public void draw()
   {
     bright[i].show();  
   }
-  for (int i = 0; i < chaos.length; i++)
+  for (int i = 0; i < hell.size(); i++)
   {
-    chaos[i].show();
-    chaos[i].move();
+    hell.get(i).show();
+    hell.get(i).move();
+  }
+  for (int i = 0; i < chaos.size(); i++)
+  {
+    chaos.get(i).show();
+    chaos.get(i).move();
+    if (dist(chaos.get(i).getX(), chaos.get(i).getY(), eggBoy.getX(), eggBoy.getY()) < 16)
+    chaos.remove(i);
   }
   eggBoy.show();
   eggBoy.move();
@@ -45,6 +52,7 @@ public void keyPressed()
     eggBoy.setDirectionY(0);
   }
   if(key == 'd')eggBoy.turn(10);
-  //if(key == 'q')eggBoy.setX(eggBoy.getX()-5);
-  //if(key == 'e')eggBoy.setX(eggBoy.getX()+5);
+  if(key == ' ')hell.add(new Bullet(eggBoy));
+  if(key == 'q')eggBoy.setX(eggBoy.getX()-5);
+  if(key == 'e')eggBoy.setX(eggBoy.getX()+5);
 }
