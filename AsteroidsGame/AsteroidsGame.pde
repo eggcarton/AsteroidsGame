@@ -25,29 +25,27 @@ public void draw()
   {
     hell.get(i).show();
     hell.get(i).move();
+    if(dist(chaos.get(i).getX(), chaos.get(i).getY(),hell.get(i).getX(), hell.get(i).getY())<10)
+    {
+      hell.remove(i);
+      break;
+    }
   }
-
   for (int i = 0; i < chaos.size(); i++)
   {
     chaos.get(i).show();
     chaos.get(i).move();
     if (dist(chaos.get(i).getX(), chaos.get(i).getY(), eggBoy.getX(), eggBoy.getY()) < 16)
     chaos.remove(i);
-    for (int k = 0; k < hell.size(); i++)
-     {
-       if(dist(hell.get(k).getX(), hell.get(k).getY(),chaos.get(i).getX(), chaos.get(i).getY()) < 20)
-       {
-         /*hell.remove(k);
-         chaos.remove(i); 
-         break;*/
-         System.out.println("hi");
-         break;
-       }
-     }
+    if(dist(chaos.get(i).getX(), chaos.get(i).getY(),hell.get(i).getX(), hell.get(i).getY())<10)
+    {
+      chaos.remove(i); 
+      break;
+    }
   }
   eggBoy.show();
   eggBoy.move();
-  
+
   
 }
 

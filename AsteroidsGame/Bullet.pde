@@ -10,14 +10,14 @@ class Bullet extends Floater
   public double getDirectionY(){return myDirectionY;}
   public void setPointDirection(int degrees){ myPointDirection = degrees;}
   public double getPointDirection(){return myPointDirection;} 
-  public Bullet(Spaceship theShip)
+  public Bullet(Spaceship eggBoy)
   {
-    myCenterX = theShip.getX();
-    myCenterY = theShip.getY();
-    myPointDirection = theShip.getPointDirection();
+    myCenterX = eggBoy.getX();
+    myCenterY = eggBoy.getY();
+    myPointDirection = eggBoy.getPointDirection();
     double dRadians =myPointDirection*(Math.PI/180);
-    myDirectionX = 5 * Math.cos(dRadians) + theShip.getDirectionX();
-    myDirectionY = 5 * Math.sin(dRadians) + theShip.getDirectionY();
+    myDirectionX = 5 * Math.cos(dRadians) + eggBoy.getDirectionX();
+    myDirectionY = 5 * Math.sin(dRadians) + eggBoy.getDirectionY();
     myColor = color(255);
   }
   public void show()
