@@ -15,15 +15,15 @@ class Asteroid extends Floater
   {
     myCenterX = (Math.random()*500)-10;
     myCenterY = (Math.random()*500)-10;
-    myRotSpd = (int)(Math.random()*11)-5;
+    myRotSpd = (int)(Math.random()*20)-10;
     corners = 4;
     int [] xS = {-8,-8,8,8};
     int [] yS = {-8,8,8,-8};
     xCorners = xS;
     yCorners = yS;
     myColor = color(129,0,0);
-    myDirectionX = (Math.random()*3)-2;
-    myDirectionY = (Math.random()*3)-2;
+    myDirectionX = (Math.random()*5)-2;
+    myDirectionY = (Math.random()*5)-2;
     myPointDirection = (Math.random()*360);
   }
   public void move()
