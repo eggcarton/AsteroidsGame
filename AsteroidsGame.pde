@@ -9,7 +9,7 @@ public void setup()
   {
     bright[i]= new Stars();
   }
-  for (int i = 0; i < 20; i++)
+  for (int i = 0; i < 50; i++)
   {
     chaos.add(new Asteroid());
   }
@@ -26,36 +26,35 @@ public void draw()
   {
     chaos.get(i).show();
     chaos.get(i).move();
-
   }
-  for (int i = 0; i < hell.size(); i++)
+  for (int i = hell.size()-1; i > -1; i--)
   {
     hell.get(i).show();
-    hell.get(i).move();
-    
+    hell.get(i).move();    
+    if (hell.get(i).getX() < 0 || hell.get(i).getX() > 500 || hell.get(i).getY()< 0 || hell.get(i).getY() > 500)
+    { 
+      hell.remove(i);
+      System.out.println(i +" removed");
+      break;
+    }
   }
-  
-for (int i = 0; i < chaos.size(); i++)
-{
-  if (dist(chaos.get(i).getX(), chaos.get(i).getY(), eggBoy.getX(), eggBoy.getY()) < 10 )
-  
+
+  for (int i = 0; i < chaos.size(); i++)
   {
-    chaos.remove(i);
-  System.out.println("aAAAAAA " + i);
-  break;
-  }
-  /* for (int k = 0; k < hell.size(); k++) //FIX THIS PELEASe
-  {
-      if (dist(hell.get(k).getX(), hell.get(k).getY(), chaos.get(i).getX(), hell.get(i).getY()) < 10 );
+    if (dist(chaos.get(i).getX(), chaos.get(i).getY(), eggBoy.getX(), eggBoy.getY()) < 10 )
+    {
+      chaos.remove(i);
+    }
+    for (int k = 0; k < hell.size(); k++)
+    {
+      if (dist(hell.get(k).getX(), hell.get(k).getY(), chaos.get(i).getX(), chaos.get(i).getY()) < 10 )
       {
-        System.out.println("chaos " + i + "hell " + k);
         chaos.remove(i);
         hell.remove(k);
         break;
-      } 
-    } */
+      }
+    }
   }
-
   eggBoy.show();
   eggBoy.move();
 }
