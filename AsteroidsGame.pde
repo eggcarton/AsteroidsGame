@@ -38,7 +38,6 @@ public void draw()
     if (dist(chaos.get(i).getX(), chaos.get(i).getY(), eggBoy.getX(), eggBoy.getY()) < 10 )
     {
       chaos.remove(i);
-      System.out.println("asteroids"+i);
       break;
     }
     for (int k = 0; k < hell.size(); k++)
@@ -46,9 +45,7 @@ public void draw()
       if (dist(hell.get(k).getX(), hell.get(k).getY(), chaos.get(i).getX(), chaos.get(i).getY()) < 10 )
       {
         hell.remove(k); 
-        System.out.println("bullet"+k);
         chaos.remove(i);
-        System.out.println("asteroids"+i);
         break;
       }
     }
